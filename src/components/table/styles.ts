@@ -4,6 +4,7 @@ import { device } from "../../device";
 
 export const TableContainer = styled.div`
   width: 100%;
+  font-family: "Be Vietnam Pro";
 
   @media ${device.tablet} {
     width: 70%;

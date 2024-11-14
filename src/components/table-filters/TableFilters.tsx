@@ -20,6 +20,7 @@ import {
   TableFilterContainer,
 } from "./styles";
 import { Country, StateSetter } from "../../types";
+import { regionNames, statusNames } from "../../constants";
 
 type TableFilterProps = {
   countriesData?: Country[];
@@ -31,22 +32,6 @@ type TableFilterProps = {
   setStatusName: StateSetter<string[]>;
   statusName: string[];
 };
-
-const regionNames = [
-  { name: "Africa", id: 1 },
-  { name: "Americas", id: 2 },
-  { name: "Antarctic", id: 3 },
-  { name: "Asia", id: 4 },
-  { name: "Europe", id: 5 },
-  { name: "Oceania", id: 6 },
-  { name: "All", id: 7 },
-];
-
-const statusNames = [
-  { name: "Member of the United Nations", id: 1 },
-  { name: "Independent", id: 2 },
-  { name: "All", id: 3 },
-];
 
 const TableFilters: React.FC<TableFilterProps> = ({
   search,

@@ -11,6 +11,8 @@ export const TableFilterContainer = styled.div`
   flex-direction: column;
   gap: 2rem;
 
+  font-family: "Be Vietnam Pro";
+
   @media ${device.tablet} {
     width: 30%;
   }
