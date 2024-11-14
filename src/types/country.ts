@@ -1,4 +1,5 @@
 export type Country = {
+  independent: boolean;
   cca3: string;
   name: {
     common: string;

@@ -61,5 +61,5 @@ export const Td = styled.td`
 export const StyledThead = styled.thead`
   height: 4rem;
 
-  border-bottom: 1px solid #d2d5da;
+  border-bottom: 1px solid #6c727f;
 `;
