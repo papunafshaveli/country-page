@@ -11,9 +11,18 @@ import {
 
 type TableProps = {
   countriesData?: Country[];
+  term: string;
 };
 
-const Table: React.FC<TableProps> = ({ countriesData }) => {
+const Table: React.FC<TableProps> = ({ countriesData, term }) => {
+  const filteredCountries = countriesData?.filter((country) => {
+    const lowerCaseTerm = term.toLowerCase();
+    return (
+      country.name.common.toLowerCase().includes(lowerCaseTerm) ||
+      country.region.toLowerCase().includes(lowerCaseTerm)
+    );
+  });
+
   return (
     <TableContainer>
       <StyledTable>
@@ -27,8 +36,8 @@ const Table: React.FC<TableProps> = ({ countriesData }) => {
           </Tr>
         </StyledThead>
         <StyledTbody>
-          {countriesData &&
-            countriesData.map((country) => (
+          {filteredCountries &&
+            filteredCountries.map((country) => (
               <Tr key={country.cca3}>
                 <Td>
                   <img

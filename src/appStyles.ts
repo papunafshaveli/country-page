@@ -4,10 +4,12 @@ import headerBg from "/headerBg.jpg";
 import { device } from "./device/device";
 
 export const AppContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
 
   background-color: #1b1d1f;
+
+  overflow-x: hidden;
 `;
 
 export const Header = styled.header`
@@ -29,7 +31,7 @@ export const MainContent = styled.main`
   flex-direction: column;
   align-items: center;
 
-  padding: 1rem 3rem;
+  padding: 1rem;
 
   background-color: #1b1d1f;
 
@@ -37,5 +39,6 @@ export const MainContent = styled.main`
     flex-direction: row;
 
     margin: 0 3rem;
+    padding: 1rem 3rem;
   }
 `;

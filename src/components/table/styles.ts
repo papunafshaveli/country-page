@@ -19,15 +19,20 @@ export const Tr = styled.tr`
 
 export const Th = styled.th`
   color: #d2d5da;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 900;
 
   text-align: left;
+
+  @media ${device.tablet} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const StyledTbody = styled.tbody`
   ${Tr} {
     cursor: pointer;
+
     height: 7rem;
   }
 `;
@@ -41,11 +46,20 @@ export const Td = styled.td`
 
   color: #d2d5da;
 
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 700;
+
+  img {
+    max-width: 100%;
+  }
+
+  @media ${device.tablet} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const StyledThead = styled.thead`
   height: 4rem;
+
   border-bottom: 1px solid #d2d5da;
 `;
