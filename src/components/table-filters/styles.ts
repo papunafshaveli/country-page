@@ -20,6 +20,12 @@ export const InputAndFoundCountries = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
 `;
 
 export const CountryCount = styled.h2`
@@ -34,6 +40,10 @@ export const InputWrapper = styled.div`
   align-items: center;
 
   position: relative;
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 
 export const SearchIcon = styled(IoMdSearch)`
@@ -46,7 +56,7 @@ export const SearchIcon = styled(IoMdSearch)`
 export const StyledInput = styled.input`
   width: 20rem;
 
-  padding: 1rem;
+  padding: 1.2rem;
   padding-left: 3rem;
 
   border: none;
@@ -63,8 +73,8 @@ export const StyledInput = styled.input`
     border-color: #aaa;
   }
 
-  @media ${device.tabletS} {
-    width: 25rem;
+  @media ${device.tablet} {
+    width: 100%;
   }
 `;
 
@@ -82,10 +92,10 @@ export const CustomSelect = styled.select`
 
   padding: 1rem;
 
-  background-color: #282b30;
+  background-color: #1b1d1f;
   color: #6c727f;
 
-  border: none;
+  border: 0.2rem solid 6c727f;
   border-radius: 0.8rem;
 `;
 
@@ -154,4 +164,11 @@ export const StatusSpan = styled.span`
 
   font-size: 1.6rem;
   font-weight: 800;
+`;
+
+export const CheckerInput = styled.input`
+  width: 1.8rem;
+  height: 1.8rem;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 `;

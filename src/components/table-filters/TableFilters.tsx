@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import {
+  CheckerInput,
   CheckerLabel,
   CheckersAndLabels,
   CountryCount,
@@ -91,7 +92,7 @@ const TableFilters: React.FC<TableFilterProps> = ({
           <StyledInput
             value={search}
             onChange={handleSearch}
-            placeholder="Search by Name, Region, Subregion..."
+            placeholder="Search by Name, Region..."
           />
         </InputWrapper>
       </InputAndFoundCountries>
@@ -126,7 +127,7 @@ const TableFilters: React.FC<TableFilterProps> = ({
         <StatusSpan>Status</StatusSpan>
         {statusNames.map((item) => (
           <CheckersAndLabels key={item.id}>
-            <input
+            <CheckerInput
               type="checkbox"
               id={item.name}
               value={item.name}

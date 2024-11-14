@@ -24,6 +24,10 @@ export const Header = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+  @media ${device.tablet} {
+    height: 25rem;
+  }
 `;
 
 export const MainContent = styled.main`
@@ -37,8 +41,13 @@ export const MainContent = styled.main`
 
   @media ${device.tablet} {
     flex-direction: row;
+    align-items: start;
 
     margin: 0 3rem;
     padding: 1rem 3rem;
+
+    margin: -5rem 3rem 3rem 3rem;
+    border-radius: 2rem;
+    border: 0.1rem solid #2b2d31;
   }
 `;
