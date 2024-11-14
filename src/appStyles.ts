@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import headerBg from "/headerBg.jpg";
-import { device } from "./device/device";
+import { device } from "./device";
 
 export const AppContainer = styled.div`
   width: 100%;

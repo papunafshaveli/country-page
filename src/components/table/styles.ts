@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { device } from "../../device/device";
+
+import { device } from "../../device";
 
 export const TableContainer = styled.div`
   width: 100%;

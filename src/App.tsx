@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { AppContainer, Header, MainContent } from "./appStyles";
 import logo from "/Logo.svg";
-import Table from "./components/table/Table";
-import TableFilters from "./components/table-filters/TableFilters";
-import useDebounce from "./hooks/useDebounce";
+
+import { AppContainer, Header, MainContent } from "./appStyles";
+import { Table, TableFilters } from "./components";
+import { useDebounce } from "./hooks";
 
 function App() {
   const [countriesData, setCountriesData] = useState();

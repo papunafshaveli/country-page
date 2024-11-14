@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { device } from "../../device/device";
 
 import { IoMdSearch } from "react-icons/io";
+import { device } from "../../device";
 
 export const TableFilterContainer = styled.div`
   width: 100%;
@@ -114,12 +114,15 @@ export const RegionBtnsWrapper = styled.div`
 `;
 
 export const RegionBtn = styled.button<{ isActive: boolean }>`
-  padding: 8px 16px;
+  padding: 0.8rem 1.6rem;
+
   border: none;
+  border-radius: 0.8rem;
+
   cursor: pointer;
+
   background-color: ${({ isActive }) => (isActive ? "#282B30" : "unset")};
   color: ${({ isActive }) => (isActive ? "#D2D5DA" : "#6C727F")};
-  border-radius: 0.8rem;
 
   &:hover {
     background-color: #4e80ee;
@@ -129,8 +132,8 @@ export const RegionBtn = styled.button<{ isActive: boolean }>`
 export const StatusWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   justify-content: center;
+  gap: 1rem;
 `;
 
 export const CheckersAndLabels = styled.div`
@@ -141,12 +144,14 @@ export const CheckersAndLabels = styled.div`
 
 export const CheckerLabel = styled.label`
   color: #6c727f;
+
   font-size: 1.2rem;
   font-weight: 800;
 `;
 
 export const StatusSpan = styled.span`
   color: #6c727f;
+
   font-size: 1.6rem;
   font-weight: 800;
 `;

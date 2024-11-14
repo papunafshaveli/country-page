@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Dimensions, getDimensions } from "../helpers/dimensions";
+import { Dimensions, getDimensions } from "../helpers";
 
 export const useDimensions = () => {
   const dimensions = useRef<Dimensions>(getDimensions());
