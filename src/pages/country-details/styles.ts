@@ -106,7 +106,7 @@ export const StatisticText = styled.p`
   align-self: center;
 
   @media ${device.tabletS} {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 `;
 
@@ -135,6 +135,14 @@ export const StyledTable = styled.table`
   }
 `;
 
+export const StyledUl = styled.ul`
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 6rem;
+`;
+
 export const NeighbourCountriesWrapper = styled.div`
   width: 95%;
   display: flex;
@@ -148,4 +156,19 @@ export const NeighbourCountriesLabel = styled.p`
   font-size: 1.4rem;
 `;
 
-export const NeighbourCountry = styled.div``;
+export const NeighbourCountry = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+`;
+
+export const NeighbourFlag = styled.img`
+  width: 8rem;
+  max-height: 4rem;
+  border-radius: 0.8rem;
+`;
+
+export const NeghbourName = styled.span`
+  color: #6c727f;
+  font-size: 1.2rem;
+`;

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Country } from "../../types";
 import {
   CountryDetailsContainer,
@@ -6,14 +6,17 @@ import {
   CountryNameWrapper,
   Name,
   NativeName,
+  NeghbourName,
   NeighbourCountriesLabel,
   NeighbourCountriesWrapper,
   NeighbourCountry,
+  NeighbourFlag,
   PopulationAndAreaWrapper,
   SelectedCountryImg,
   Statistic,
   StatisticText,
   StyledTable,
+  StyledUl,
   VerticalSeparator,
 } from "./styles";
 import { Header } from "../../components";
@@ -26,6 +29,7 @@ type CountryDetailsProps = {
 
 const CountryDetails: React.FC<CountryDetailsProps> = ({ countriesData }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const country = location.state?.country as Country;
 
   const tableData = [
@@ -51,6 +55,15 @@ const CountryDetails: React.FC<CountryDetailsProps> = ({ countriesData }) => {
     },
   ];
 
+  const handleNeighbourClick = (neighborName: string) => {
+    const neighborCountry = countriesData.find(
+      (c) => c.name.common === neighborName
+    );
+    if (neighborCountry) {
+      navigate("/country-details", { state: { country: neighborCountry } });
+    }
+  };
+
   const neighbors = useMemo(() => {
     return country.borders
       ?.map((borderCode) => {
@@ -64,7 +77,10 @@ const CountryDetails: React.FC<CountryDetailsProps> = ({ countriesData }) => {
             }
           : null;
       })
-      .filter(Boolean);
+      .filter(
+        (neighbor): neighbor is { name: string; flag: string } =>
+          neighbor !== null
+      );
   }, [country.borders, countriesData]);
 
   if (!country) {
@@ -117,18 +133,21 @@ const CountryDetails: React.FC<CountryDetailsProps> = ({ countriesData }) => {
         </StyledTable>
         <NeighbourCountriesWrapper>
           <NeighbourCountriesLabel>Neighbour Countries</NeighbourCountriesLabel>
-          <ul>
+          <StyledUl>
             {neighbors && neighbors.length > 0 ? (
               neighbors.map((neighbor) => (
-                <NeighbourCountry key={neighbor?.name}>
-                  <img src={neighbor?.flag} width="40" />
-                  <span>{neighbor?.name}</span>
+                <NeighbourCountry
+                  key={neighbor?.name}
+                  onClick={() => handleNeighbourClick(neighbor.name)}
+                >
+                  <NeighbourFlag src={neighbor?.flag} width="40" />
+                  <NeghbourName>{neighbor?.name}</NeghbourName>
                 </NeighbourCountry>
               ))
             ) : (
               <li>No neighboring countries</li>
             )}
-          </ul>
+          </StyledUl>
         </NeighbourCountriesWrapper>
       </CountryDetailsContent>
     </CountryDetailsContainer>

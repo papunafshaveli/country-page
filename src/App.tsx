@@ -1,7 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CountryDetails, Home } from "./pages";
 import { AppContainer } from "./AppStyles";
-import { useEffect, useState } from "react";
 
 const App = () => {
   const [countriesData, setCountriesData] = useState([]);
@@ -24,20 +24,26 @@ const App = () => {
     fetchCountriesData();
   }, []);
 
-  return (
-    <AppContainer>
-      <Routes>
-        <Route
-          path="/"
-          element={<Home countriesData={countriesData} isLoading={isLoading} />}
-        />
-        <Route
-          path="country-details"
-          element={<CountryDetails countriesData={countriesData} />}
-        />
-      </Routes>
-    </AppContainer>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <AppContainer>
+          <Home countriesData={countriesData} isLoading={isLoading} />
+        </AppContainer>
+      ),
+    },
+    {
+      path: "country-details",
+      element: (
+        <AppContainer>
+          <CountryDetails countriesData={countriesData} />
+        </AppContainer>
+      ),
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 };
 
 export default App;
