@@ -8,16 +8,14 @@ export const formatValueToString = (
   if (Array.isArray(value)) {
     return value.join(", ");
   } else if (typeof value === "object" && value !== null) {
-    return (
-      Object.entries(value)
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .map(([key, currency]) =>
-          typeof currency === "object" && currency.name && currency.symbol
-            ? `${currency.name} (${currency.symbol})`
-            : currency
-        )
-        .join(", ")
-    );
+    return Object.entries(value)
+
+      .map(([, currency]) =>
+        typeof currency === "object" && currency.name && currency.symbol
+          ? `${currency.name} (${currency.symbol})`
+          : currency
+      )
+      .join(", ");
   }
   return value || "N/A";
 };
