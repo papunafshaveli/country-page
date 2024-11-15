@@ -169,6 +169,7 @@ export const NeighbourCountry = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+  cursor: pointer;
 `;
 
 export const NeighbourFlag = styled.img`
