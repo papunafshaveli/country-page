@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import headerBg from "/headerBg.jpg";
+
 import { device } from "../../device";
 
 export const HeaderContainer = styled.header`

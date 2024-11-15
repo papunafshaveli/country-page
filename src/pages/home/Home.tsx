@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Hourglass } from "react-loader-spinner";
 
 import { HomeContainer, MainContent } from "./styles";
+
 import { Header, Table, TableFilters } from "../../components";
 import { useDebounce } from "../../hooks";
-import { Hourglass } from "react-loader-spinner";
 import { Country } from "../../types";
 
 type HomeProps = {

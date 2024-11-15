@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CountryDetails, Home } from "./pages";
-import { AppContainer } from "./AppStyles";
+import { AppContainer } from "./appStyles";
 
 const App = () => {
   const [countriesData, setCountriesData] = useState([]);

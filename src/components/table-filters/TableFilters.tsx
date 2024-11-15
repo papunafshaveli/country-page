@@ -19,6 +19,7 @@ import {
   StyledLabel,
   TableFilterContainer,
 } from "./styles";
+
 import { Country, StateSetter } from "../../types";
 import { regionNames, statusNames } from "../../constants";
 
