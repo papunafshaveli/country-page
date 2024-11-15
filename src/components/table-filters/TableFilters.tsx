@@ -77,7 +77,7 @@ const TableFilters: React.FC<TableFilterProps> = ({
           <StyledInput
             value={search}
             onChange={handleSearch}
-            placeholder="Search by Name, Region..."
+            placeholder="Search by Name, Region, Subregion..."
           />
         </InputWrapper>
       </InputAndFoundCountries>

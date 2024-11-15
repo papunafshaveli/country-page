@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Country } from "../../types";
 import {
   StyledTbody,
@@ -25,12 +26,14 @@ const Table: React.FC<TableProps> = ({
   statusName,
 }) => {
   const lowerCaseTerm = term.toLowerCase();
+  const navigate = useNavigate();
 
   const filteredCountries = countriesData
     ?.filter((country) => {
       const matchesTerm =
         country.name.common.toLowerCase().includes(lowerCaseTerm) ||
-        country.region.toLowerCase().includes(lowerCaseTerm);
+        country.region.toLowerCase().includes(lowerCaseTerm) ||
+        country.subRegion?.toLowerCase().includes(lowerCaseTerm);
 
       const matchesRegion =
         selectedRegion && selectedRegion !== "All"
@@ -57,6 +60,9 @@ const Table: React.FC<TableProps> = ({
           return 0;
       }
     });
+  const handleRowClick = (country: Country) => {
+    navigate("/country-details", { state: { country } });
+  };
   return (
     <TableContainer>
       <StyledTable>
@@ -72,7 +78,7 @@ const Table: React.FC<TableProps> = ({
         <StyledTbody>
           {!!filteredCountries &&
             filteredCountries.map((country) => (
-              <Tr key={country.cca3}>
+              <Tr key={country.cca3} onClick={() => handleRowClick(country)}>
                 <Td>
                   <img
                     src={country.flags.svg}
