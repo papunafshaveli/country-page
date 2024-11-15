@@ -101,7 +101,7 @@ const TableFilters: React.FC<TableFilterProps> = ({
             <RegionBtn
               key={regionObj.id}
               onClick={() => handleSelectRegion(regionObj.name)}
-              isActive={activeRegion === regionObj.name}
+              $btnIsActive={activeRegion === regionObj.name}
             >
               {regionObj.name}
             </RegionBtn>

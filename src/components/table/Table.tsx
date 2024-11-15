@@ -70,7 +70,7 @@ const Table: React.FC<TableProps> = ({
           </Tr>
         </StyledThead>
         <StyledTbody>
-          {filteredCountries &&
+          {!!filteredCountries &&
             filteredCountries.map((country) => (
               <Tr key={country.cca3}>
                 <Td>

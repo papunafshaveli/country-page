@@ -125,7 +125,11 @@ export const RegionBtnsWrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export const RegionBtn = styled.button<{ isActive: boolean }>`
+type RegionBtnProps = {
+  $btnIsActive: boolean;
+};
+
+export const RegionBtn = styled.button<RegionBtnProps>`
   padding: 0.8rem 1.6rem;
 
   border: none;
@@ -133,8 +137,9 @@ export const RegionBtn = styled.button<{ isActive: boolean }>`
 
   cursor: pointer;
 
-  background-color: ${({ isActive }) => (isActive ? "#282B30" : "unset")};
-  color: ${({ isActive }) => (isActive ? "#D2D5DA" : "#6C727F")};
+  background-color: ${({ $btnIsActive }) =>
+    $btnIsActive ? "#282B30" : "unset"};
+  color: ${({ $btnIsActive }) => ($btnIsActive ? "#D2D5DA" : "#6C727F")};
 
   &:hover {
     background-color: #4e80ee;

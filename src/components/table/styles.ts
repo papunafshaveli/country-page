@@ -52,7 +52,10 @@ export const Td = styled.td`
   font-weight: 700;
 
   img {
+    min-width: 5rem;
     max-width: 100%;
+
+    border-radius: 0.4rem;
   }
 
   @media ${device.tablet} {

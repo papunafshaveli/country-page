@@ -10,6 +10,10 @@ export const AppContainer = styled.div`
   background-color: #1b1d1f;
 
   overflow-x: hidden;
+  .loader {
+    position: absolute;
+    left: 25%;
+  }
 `;
 
 export const Header = styled.header`
