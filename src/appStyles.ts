@@ -7,4 +7,10 @@ export const AppContainer = styled.div`
   background-color: #1b1d1f;
 
   overflow-x: hidden;
+
+  .loader_in_details {
+    position: absolute;
+    left: 25%;
+    top: 25%;
+  }
 `;

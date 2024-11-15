@@ -4,6 +4,7 @@ import { device } from "../../device";
 
 export const TableContainer = styled.div`
   width: 100%;
+  display: flex;
   font-family: "Be Vietnam Pro";
 
   @media ${device.tablet} {
@@ -67,4 +68,30 @@ export const StyledThead = styled.thead`
   height: 4rem;
 
   border-bottom: 1px solid #6c727f;
+`;
+
+export const EmptyState = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2.5rem;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  margin-bottom: 4rem;
+
+  color: #d2d5da;
+`;
+
+export const DesertedImg = styled.img``;
+
+export const Description = styled.p`
+  font-size: 1.6rem;
+  font-weight: 700;
 `;

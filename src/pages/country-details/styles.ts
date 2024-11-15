@@ -37,10 +37,11 @@ export const SelectedCountryImg = styled.img`
   width: 15rem;
   border-radius: 0.5rem;
 
-  margin-top: -4rem;
+  margin-top: -3.5rem;
 
   @media ${device.tablet} {
     width: 22rem;
+    margin-top: -4.5rem;
   }
 `;
 

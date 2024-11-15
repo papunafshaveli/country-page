@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { CountryDetails, Home } from "./pages";
 import { AppContainer } from "./appStyles";
+import { Hourglass } from "react-loader-spinner";
 
 const App = () => {
   const [countriesData, setCountriesData] = useState([]);
@@ -37,7 +38,19 @@ const App = () => {
       path: "country-details",
       element: (
         <AppContainer>
-          <CountryDetails countriesData={countriesData} />
+          {isLoading ? (
+            <Hourglass
+              visible={true}
+              height="50%"
+              width="50%"
+              ariaLabel="hourglass-loading"
+              wrapperStyle={{}}
+              wrapperClass="loader_in_details"
+              colors={["#646669", "#59606b"]}
+            />
+          ) : (
+            <CountryDetails countriesData={countriesData} />
+          )}
         </AppContainer>
       ),
     },

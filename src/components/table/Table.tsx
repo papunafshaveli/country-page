@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
+import DesertedIcon from "/DesertedIcon.png";
+
 import { Country } from "../../types";
 
 import {
@@ -10,6 +12,9 @@ import {
   Tr,
   Td,
   StyledThead,
+  EmptyState,
+  DesertedImg,
+  Description,
 } from "./styles";
 
 type TableProps = {
@@ -67,35 +72,42 @@ const Table: React.FC<TableProps> = ({
   };
   return (
     <TableContainer>
-      <StyledTable>
-        <StyledThead>
-          <Tr>
-            <Th>Flag</Th>
-            <Th>Name</Th>
-            <Th>Population</Th>
-            <Th>Area (km²)</Th>
-            <Th>Region</Th>
-          </Tr>
-        </StyledThead>
-        <StyledTbody>
-          {!!filteredCountries &&
-            filteredCountries.map((country) => (
-              <Tr key={country.cca3} onClick={() => handleRowClick(country)}>
-                <Td>
-                  <img
-                    src={country.flags.svg}
-                    alt={`Flag of ${country.name.common}`}
-                    width="30"
-                  />
-                </Td>
-                <Td>{country.name.common}</Td>
-                <Td>{country.population.toLocaleString()}</Td>
-                <Td>{country.area?.toLocaleString() || "N/A"}</Td>
-                <Td>{country.region}</Td>
-              </Tr>
-            ))}
-        </StyledTbody>
-      </StyledTable>
+      {filteredCountries?.length ? (
+        <StyledTable>
+          <StyledThead>
+            <Tr>
+              <Th>Flag</Th>
+              <Th>Name</Th>
+              <Th>Population</Th>
+              <Th>Area (km²)</Th>
+              <Th>Region</Th>
+            </Tr>
+          </StyledThead>
+          <StyledTbody>
+            {!!filteredCountries &&
+              filteredCountries.map((country) => (
+                <Tr key={country.cca3} onClick={() => handleRowClick(country)}>
+                  <Td>
+                    <img
+                      src={country.flags.svg}
+                      alt={`Flag of ${country.name.common}`}
+                      width="30"
+                    />
+                  </Td>
+                  <Td>{country.name.common}</Td>
+                  <Td>{country.population.toLocaleString()}</Td>
+                  <Td>{country.area?.toLocaleString() || "N/A"}</Td>
+                  <Td>{country.region}</Td>
+                </Tr>
+              ))}
+          </StyledTbody>
+        </StyledTable>
+      ) : (
+        <EmptyState>
+          <DesertedImg src={DesertedIcon} />
+          <Description>No countries found.</Description>
+        </EmptyState>
+      )}
     </TableContainer>
   );
 };
